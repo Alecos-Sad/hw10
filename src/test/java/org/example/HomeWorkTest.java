@@ -26,8 +26,6 @@ class HomeWorkTest {
         runTest("case2.%s");
     }
 
-
-
     private void runTest(String pattern) {
         execute(pattern);
         assertRun(pattern);
@@ -35,8 +33,8 @@ class HomeWorkTest {
 
     @SneakyThrows
     private void assertRun(String pattern) {
-        String answer = Files.readString(Path.of("target/" + String.format(pattern, "answer")));
-        String out = Files.readString(Path.of("task/" + String.format(pattern, "out")));
+        String answer = Files.readString(Path.of("target/" + String.format(pattern, "answer"))).trim();
+        String out = Files.readString(Path.of("task/" + String.format(pattern, "out"))).trim();
         assertEquals(out, answer);
     }
 
@@ -48,9 +46,6 @@ class HomeWorkTest {
         ) {
             HomeWork hw = new HomeWork();
             hw.championship(in, answer);
-
         }
-
     }
-
 }
